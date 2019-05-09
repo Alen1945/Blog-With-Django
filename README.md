@@ -1,1 +1,1 @@
-#Blog With Django
+# Blog With Django
