@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+		<div class="card bg-light shadow p-2 mt-2">
+			<h3>{{object.title}}</h3>
+			<p><a href="{% url 'blog:user-posts' object.author.username %}">{{object.author}}</a> at {{object.date_posted}}</p>
+			<p>{{object.content}}</p>
+		</div>
+		{% if object.author == user%}
+			<a class='btn btn-primary mt-4 mr-2' href="{% url "blog:post-update" object.pk %}">Update</a>
+			<a class='btn btn-danger mt-4 ' href="{% url "blog:post-delete" object.pk %}">Delete</a>
+		{% endif %}
+{% endblock content %}

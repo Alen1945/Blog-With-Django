@@ -1,0 +1,72 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+	<h1>Daftar</h1>
+	{% if form.errors %}
+		{% for error in form.non_field_errors  %}
+			<div class="alert alert-danger alert-dismiss">
+				<button class="close" type="button" data-dismiss='alert' aria-label="close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<p>{{error}}</p>
+			</div>
+		{% endfor %}
+	{% endif %}
+	
+	<form method="Post">
+		{% csrf_token %}
+		<div class="form-group {% if form.errors %}has-error{% endif %}">
+			<label for="{{form.username.id_for_label}}" class="col-form-label">
+				{{form.username.label}}
+			</label>
+			{{form.username}}
+			{% if form.errors %}
+				{% for error in form.username.errors  %}
+					<small class="text-muted">*<span class="text-danger">{{error}}</span></small>
+				{% endfor %}
+			{% endif %}
+			
+		</div>
+		<div class="form-group {% if form.email.errors %}has-error{% endif %}">
+			<label for="{{form.email.id_for_label}}" class="col-form-label">
+				{{form.email.label}}
+			</label>
+			{{form.email}}
+			{% if form.errors %}
+				{% for error in form.email.errors  %}
+					<small class="text-muted">*<span class="text-danger">{{error}}</span></small>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+			<label for="{{form.password1.id_for_label}}" class="col-form-label">
+				{{form.password1.label}}
+			</label>
+			{{form.password1}}
+			{% if form.errors %}
+				{% for error in form.password1.errors  %}
+					<small class="text-muted">*<span class="text-danger">{{error}}</span></small>
+				{% endfor %}
+			{% endif %}
+		</div>
+		<div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+			<label for="{{form.password2.id_for_label}}" class="col-form-label">
+				{{form.password2.label}}
+			</label>
+			{{form.password2}}
+			{% if form.errors %}
+				{% for error in form.password2.errors  %}
+					<small class="text-muted">*<span class="text-danger">{{error}}</span></small>
+				{% endfor %}
+			{% endif %}
+		</div>
+		{# {{form}} #}
+		<button type="submit" class="btn btn-primary">Daftar</button>
+	</form>
+
+	<div class="border-top border-danger mt-3">
+		<small class="text-muted">
+			Punya Akun <a href="{% url "users:login" %}" class="text-danger">Sign In</a>
+		</small>
+	</div>
+{% endblock content %}

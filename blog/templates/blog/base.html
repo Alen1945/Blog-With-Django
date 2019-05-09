@@ -1,0 +1,43 @@
+`{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>{{title}} | Batasibuk</title>
+	{% else %}
+		<title>Batasibuk</title>
+	{% endif %}
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {{form.media}}
+    <link rel="stylesheet" type="text/css" href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}">
+    <!-- CSS -->
+    {% include "../snippets/css.html" %}
+</head>
+<body style="padding-top:60px;">
+	{% include "../snippets/navbar.html" %}
+	<div class="container">
+	{% if messages %}
+		{% for message in messages  %}
+			<div class="alert alert-{{message.tags}}">
+				{{message}}
+			</div>
+		{% endfor %}
+	{% endif %}
+	{% block content %}
+		
+	{% endblock content %}
+	</div>
+
+
+<footer class="container-fluid footer">
+		<p class="copy">Batazibuk <i class="fa fa-copyright"></i> 2019</p>
+		<p class="author">With <i class="fa fa-heart"></i><a href="https://facebook/alen"> Alen</a></p>
+</footer>
+<!-- JS -->
+{% include "../snippets/js.html" %}	
+</body>
+</html>

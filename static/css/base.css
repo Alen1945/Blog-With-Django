@@ -1,0 +1,58 @@
+html{
+	position: relative;
+	min-height: 100%;
+}
+body{
+	padding-bottom: 120px;
+	min-height: 100%;
+	background-color: whitesmoke;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: bold;
+}
+a,a:hover,a:visited,a:focus{
+	color: sky-blue;
+	text-decoration: none;
+}
+img{
+	width: 100%;
+}
+li{
+	list-style: none;
+}
+
+.fa-heart{
+color: salmon;
+}
+.post-author{
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+	border:3px solid royalblue;
+	background-color:whitesmoke;
+	color: royalblue;
+	overflow: hidden;
+}
+/*Navbar*/
+.navbar-costum{
+	font-weight: bold;
+	background-color:  #3e92da;
+}
+
+
+
+/*footer*/
+.footer{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding-top: 20px;
+	height: 100px;
+	text-align: center;
+	color: snow;
+	font-weight: bold;
+	font-size: 15px;
+	vertical-align: middle;
+	background-color:#2a2730;
+}
